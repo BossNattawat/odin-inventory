@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%-include("Header") %> %>
+    <%-include("Navbar") %> %>
+    <div class="gamePreview">
+        <div class="gameInfoUpper">
+            <img src="/images/games/<%=game.image%>" alt="game">
+            <div class="infoWrapper">
+                <h2><%=game.name%></h2>
+                <p>Price: $<%=game.price%></p>
+            </div>
+        </div>
+        <div class="gameInfoUnder">
+            <p><%=game.description%></p>
+            <p>Developer: <%=game.developer%></p>
+            <p>Categories: <%=game.categories%></p>
+        </div>
+    </div>
+    <%-include("Footer") %> %>
+</body>
+</html>

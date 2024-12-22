@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Inventory</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%-include("Header") %> %>
+    <%-include("Navbar") %> %>
+    <div class="header">
+        <h1>All Games</h1>
+    </div>
+    <div class="container">
+        <% game.map((item) => { %>
+            <div class="gameWrapper">
+                <img src="/images/games/<%=item.image%>" alt="gamePic">
+                <div class="gameInfo">
+                    <h3><%=item.name%></h3>
+                    <p><%=item.description%></p>
+                    <a href="/game/<%=item._id%>">View</a>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+    <%-include("Footer") %> %>
+</body>
+</html>

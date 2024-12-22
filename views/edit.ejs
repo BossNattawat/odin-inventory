@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%-include("Header") %> %>
+    <%-include("Navbar") %> %>
+    <%-include("AdminNavbar") %> %>
+    <div class="addGameContainer">
+        <h1>Add Game</h1>
+        <form action="/update" method="POST">
+            <input type="hidden" name="update_id" value="<%=game._id%>">
+            <label>Name</label>
+            <input type="text" name="name" placeholder="Game Name" value="<%=game.name%>" required>
+            <label>Price</label>
+            <input type="text" name="price" placeholder="Price" value="<%=game.price%>" required>
+            <label>Description</label>
+            <textarea name="description" placeholder="Description" cols="30" rows="4" required><%=game.description%></textarea>
+            <label for="developer">Developer(s):</label>
+            <input type="text" name="developer" placeholder="Comma-separated (e.g., Dev1, Dev2)" value="<%=game.developer%>" required>
+            <label for="categories">Categories:</label>
+            <input type="text" name="categories" placeholder="Comma-separated (e.g., Action, RPG)" value="<%=game.categories%>" required>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+    <%-include("Footer") %> %>
+</body>
+</html>

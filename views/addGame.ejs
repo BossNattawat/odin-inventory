@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%-include("Header") %> %>
+    <%-include("Navbar") %> %>
+    <%-include("AdminNavbar") %> %>
+    <div class="addGameContainer">
+        <h1>Add Game</h1>
+        <form action="/insert" method="POST" enctype="multipart/form-data">
+            <label>Name</label>
+            <input type="text" name="name" placeholder="Game Name" required>
+            <label>Price</label>
+            <input type="text" name="price" placeholder="Price" required>
+            <label>Game Image</label>
+            <input type="file" name="image" required>
+            <label>Description</label>
+            <textarea name="description" placeholder="Description" cols="30" rows="4" required></textarea>
+            <label for="developer">Developer(s):</label>
+            <input type="text" name="developer" placeholder="Comma-separated (e.g., Dev1, Dev2)" required>
+            <label for="categories">Categories:</label>
+            <input type="text" name="categories" placeholder="Comma-separated (e.g., Action, RPG)" required>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+    <%-include("Footer") %> %>
+</body>
+</html>
