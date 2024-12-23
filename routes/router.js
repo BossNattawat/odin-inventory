@@ -17,6 +17,10 @@ const upload = multer({
     storage:storage
 })
 
+router.get("/404", (req, res) => {
+    res.render("404")
+})
+
 router.get("/", (req, res) => {
     Game.find().exec()
     .then((doc) => {

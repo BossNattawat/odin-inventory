@@ -366,6 +366,13 @@ a {
     }
 }
 
+.error{
+    margin: 50px;
+    h1{
+        color: var(--fontWhite);
+    }
+}
+
 @media (max-width: 1150px){
     .container{
         grid-template-columns: repeat(1, auto);
