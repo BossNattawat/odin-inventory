@@ -57,7 +57,7 @@ router.get("/category/:id", (req, res) => {
 })
 
 router.get("/addGame", (req, res) => {
-    if(req.session.login){
+    if(req.cookies.login){
         res.render("addGame")
     }
     else{
@@ -66,7 +66,7 @@ router.get("/addGame", (req, res) => {
 })
 
 router.get("/manage", (req, res) => {
-    if(req.session.login){
+    if(req.cookies.login){
         Game.find().exec()
         .then((doc) => {
             res.render("manage", {game: doc})
@@ -165,10 +165,13 @@ router.post("/login", (req, res) => {
     const timeExpire = 3600000
 
     if(username === admin && password === adminPassword){
-        req.session.username = username
-        req.session.password = password
-        req.session.login = true
-        req.session.cookie.maxAge = timeExpire
+        // req.session.username = username
+        // req.session.password = password
+        // req.session.login = true
+        // req.session.cookie.maxAge = timeExpire
+        res.cookie("username", admin, {maxAge:timeExpire})
+        res.cookie("password", adminPassword, {maxAge:timeExpire})
+        res.cookie("login", true, {maxAge:timeExpire})
         res.redirect("addGame")
     }
     else{
