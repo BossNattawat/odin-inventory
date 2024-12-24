@@ -11,7 +11,7 @@ const app = express()
 app.use(express.urlencoded({extended:false}))
 
 app.use(cookieParser())
-app.use(expressSession({secret:"onionSession", resave:false, saveUninitialized:false}))
+app.use(expressSession({secret: process.env.SESSION_SECRET, resave:false, saveUninitialized:false}))
 
 app.use(express.static(path.join(__dirname, "public")))
 app.set("view engine", "ejs")
