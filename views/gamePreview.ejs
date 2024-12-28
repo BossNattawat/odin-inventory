@@ -20,8 +20,8 @@
         </div>
         <div class="gameInfoUnder">
             <p><%=game.description%></p>
-            <p>Developer: <%=game.developer%></p>
-            <p>Categories: <%=game.categories%></p>
+            <p>Developer: <%=game.developer.join(", ")%></p>
+            <p>Categories: <%=game.categories.join(", ")%></p>
         </div>
     </div>
     <%-include("Footer") %> %>
